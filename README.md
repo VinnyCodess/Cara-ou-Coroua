@@ -1,28 +1,37 @@
-# Projeto de Aprendizado por Reforço - Moeda Viciada
+# Q-Learning para Previsão de Resultados de Moeda Viciada
 
-**Autor:** Vinícius Gomes de Sousa  
-**Matrícula:** 01555769  
-**Data de Criação:** 02/05/2025  
+Este projeto implementa um agente que utiliza o algoritmo de **Q-Learning** para prever os resultados de lançamentos de uma **moeda viciada**. A moeda tem 60% de chance de cair "cara" e 40% de chance de cair "coroa". O objetivo do agente é aprender a escolher a ação (cara ou coroa) que maximize sua taxa de acerto.
 
-## Descrição do Projeto
+## Estrutura do Projeto
 
-Este projeto vai implementar um agente simples de Q-Learning para aprender a prever resultados de uma moeda viciada (que tem 60% de chance de cair "cara"). O objetivo é:
+O projeto é composto por duas classes principais:
 
-1. Criar um ambiente simulando a moeda viciada
-2. Implementar o algoritmo Q-Learning básico
-3. Mostrar como o agente aprende a escolher "cara" com mais frequência
+- **MoedaViciada**: Simula os lançamentos da moeda viciada, retornando 1 (acerto) ou 0 (erro) com base na ação do agente e no resultado do lançamento.
+- **Agente**: Implementa o algoritmo de Q-Learning, onde a Q-table é atualizada durante o treinamento com base nas recompensas obtidas.
 
-## Tecnologias que Serão Utilizadas
+A política do agente é **epsilon-greedy**, ou seja, em alguns casos ele escolhe uma ação aleatoriamente (exploração), enquanto em outros escolhe a melhor ação com base no valor armazenado na Q-table (exploração).
 
-- **Python** (linguagem principal)
-- **NumPy** (para cálculos matemáticos)
-- **Matplotlib** (para visualizar os resultados)
+## Como Funciona
 
-## Próximos Passos
+1. **Treinamento**: O agente realiza 1000 episódios de treinamento, jogando a moeda e atualizando sua Q-table com base nas recompensas recebidas.
+2. **Visualização**: Ao final do treinamento, é gerado um gráfico mostrando a taxa de acerto do agente ao longo do tempo.
+3. **Demonstração**: O agente é testado em 5 lançamentos, sempre escolhendo a melhor ação aprendida, e o resultado é exibido.
 
-1. Configurar o ambiente Python
-2. Criar a simulação da moeda
-3. Implementar a tabela Q simples (2x2)
-4. Treinar o agente e mostrar os resultados
+## Resultados Esperados
 
-## Como Executar (Futuramente)
+- O agente aprende a escolher sempre "cara" como ação, pois é a melhor estratégia para a moeda viciada.
+- O gráfico mostra uma tendência de aumento na taxa de acerto ao longo do tempo, à medida que o agente aprende com as experiências.
+
+## Requisitos
+
+- **Python 3.x**
+- **Bibliotecas necessárias**:
+  - `numpy`
+  - `matplotlib`
+
+## Como Rodar
+
+1. Clone este repositório.
+2. Instale as dependências:
+   ```bash
+   pip install numpy matplotlib
